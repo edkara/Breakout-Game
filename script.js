@@ -215,20 +215,20 @@ function changeDirection() {
   // }
 }
 
-// let startButton = document.querySelector(".startForm");
-// startButton.addEventListener("click", function () {
-//   startButton.classList.add("active");
-//   createBlocks();
-//   createPaddle();
-//   movePaddle();
-//   createBall();
-//   timer = setInterval(moveBall, 100);
-// });
-
-document.addEventListener("DOMContentLoaded", function () {
+let startButton = document.querySelector(".startForm");
+startButton.addEventListener("click", function () {
+  startButton.classList.add("active");
   createBlocks();
   createPaddle();
   movePaddle();
   createBall();
   timer = setInterval(moveBall, 100);
 });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   createBlocks();
+//   createPaddle();
+//   movePaddle();
+//   createBall();
+//   timer = setInterval(moveBall, 100);
+// });
