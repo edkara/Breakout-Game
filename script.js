@@ -74,9 +74,6 @@ function createPaddle() {
   canvas.appendChild(paddle);
 }
 
-//Problem: paddle move out of canvas
-//Problem: ondragstart - when to stop dragging
-//Problem: When Game Over I should not be able to move the paddle
 function movePaddle() {
   paddle.onmousedown = function (event) {
     let shiftX = event.clientX - paddle.getBoundingClientRect().left;
