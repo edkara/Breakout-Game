@@ -1,0 +1,70 @@
+$background-color: #a8ba9a;
+$font-color: #297373;
+$ball-color: #EF946C;
+$ball-border: #FBFFB9;
+$paddle-color: #afcbff;
+$paddle-border: #34435E;
+$block-color: #247B7B;
+$block-border: #540D6E;
+$span-background: #49416d;
+$canvas-background: #CCE8CC;
+$button-background: #664E4C;
+$button-hover-background: #B4D2E7;
+$button-hover-color: #A1A6B4;
+$white: #fff;
+
+$font-family: "Poppins", sans-serif;
+$h1-font-size: 5rem;
+$h1-font-weight: 500;
+$h2-font-size: 3rem;
+$h2-font-weight: 400;
+$h3-font-size: 2rem;
+$h3-font-weight: 300;
+$p-font-size: 1.5rem;
+$font-weight: 200;
+$a-font-size: 1.7rem;
+
+h1 {
+  font-size: $h1-font-size;
+  font-family: $font-family;
+  color: $font-color;
+  font-weight: $h1-font-weight;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-family: $font-family;
+  font-weight: $h2-font-weight;
+  color: $font-color;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-family: $font-family;
+  font-weight: $h3-font-weight;
+  color: $font-color;
+}
+
+p {
+  font-size: $p-font-size;
+  font-family: $font-family;
+  color: $font-color;
+  font-weight: $font-weight;
+}
+
+a {
+  font-size: $a-font-size;
+  font-family: $font-family;
+  color: $font-color;
+  font-weight: $font-weight;
+}
+
+span {
+  font-size: 3.5rem;
+  background-color: $span-background;
+  color: $white;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  display: inline-block;
+  margin: 0.1rem;
+}

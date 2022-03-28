@@ -1,0 +1,16 @@
+.startBtn {
+  position: relative;
+  cursor: pointer;
+  width: 30rem;
+  background-color: $button-background;
+  font-size: 3.5rem;
+  font-family: $font-family;
+  color: $ball-border;
+  font-weight: $h1-font-weight;
+  top: 0;
+  right: 0;
+  &:hover {
+    background-color: $button-hover-background;
+    color: $ball-color;
+  }
+}

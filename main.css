@@ -1,0 +1,147 @@
+h1 {
+  font-size: 5rem;
+  font-family: "Poppins", sans-serif;
+  color: #297373;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #297373;
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #297373;
+}
+
+p {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  color: #297373;
+  font-weight: 200;
+}
+
+a {
+  font-size: 1.7rem;
+  font-family: "Poppins", sans-serif;
+  color: #297373;
+  font-weight: 200;
+}
+
+span {
+  font-size: 3.5rem;
+  background-color: #49416d;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  display: inline-block;
+  margin: 0.1rem;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: -4rem;
+  margin-bottom: -2rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.canvas {
+  position: absolute;
+  width: 66rem;
+  height: 44rem;
+  border: 0.12rem solid #49416d;
+  background: #CCE8CC;
+}
+
+.block {
+  position: absolute;
+  width: 12rem;
+  height: 3rem;
+  background-color: #247B7B;
+}
+
+.paddle {
+  position: absolute;
+  width: 18rem;
+  height: 1rem;
+  background-color: #afcbff;
+  border: 0.12rem solid #34435E;
+}
+
+.ball {
+  position: absolute;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  background-color: #EF946C;
+  border: 0.2rem solid #FBFFB9;
+}
+
+.startBtn {
+  position: relative;
+  cursor: pointer;
+  width: 30rem;
+  background-color: #664E4C;
+  font-size: 3.5rem;
+  font-family: "Poppins", sans-serif;
+  color: #FBFFB9;
+  font-weight: 500;
+  top: 0;
+  right: 0;
+}
+
+.startBtn:hover {
+  background-color: #B4D2E7;
+  color: #EF946C;
+}
+
+.startForm {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 10000;
+  -webkit-transform: translateY(-15.5%);
+          transform: translateY(-15.5%);
+}
+
+.startForm.active {
+  -webkit-transform: translateY(-116%);
+          transform: translateY(-116%);
+}
+
+body {
+  background: #a8ba9a;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=main.css.map */

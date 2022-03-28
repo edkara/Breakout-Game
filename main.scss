@@ -1,0 +1,17 @@
+@import "./styles/fonts";
+@import "./styles/header";
+@import "./styles/canvas";
+@import "./styles/block";
+@import "./styles/paddle";
+@import "./styles/ball";
+@import "./styles/startBtn";
+@import "./styles/startForm";
+
+body {
+  background: $background-color;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}

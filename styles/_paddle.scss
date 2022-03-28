@@ -1,0 +1,7 @@
+.paddle {
+  position: absolute;
+  width: 18rem;
+  height: 1rem;
+  background-color: $paddle-color;
+  border: 0.12rem solid $paddle-border;
+}

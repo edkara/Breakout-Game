@@ -1,0 +1,14 @@
+.startForm {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transform: translateY(-15.5%);
+  &.active {
+    transform: translateY(-116%);
+  }
+}
