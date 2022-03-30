@@ -50,8 +50,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: -4rem;
-  margin-bottom: -2rem;
+  margin-top: 8.7rem;
 }
 
 .title {
@@ -92,6 +91,7 @@ header {
 
 .startBtn {
   position: relative;
+  place-self: center;
   cursor: pointer;
   width: 30rem;
   background-color: #664E4C;
@@ -110,12 +110,11 @@ header {
 
 .startForm {
   position: fixed;
+  display: -ms-inline-grid;
+  display: inline-grid;
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

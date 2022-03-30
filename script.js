@@ -5,13 +5,10 @@ const paddle = document.createElement("div");
 const paddleStart = [2, 41];
 let paddleCurrentPosition = paddleStart;
 
-//left and bottom
 const ballStartPosition = [2, 35];
 let ballCurrentPosition = ballStartPosition;
-let xLeft = 1;
-let yBottom = 1;
-
-var first = false;
+let dx = 1;
+let dy = -1;
 
 let timer;
 
@@ -20,6 +17,7 @@ const paddleHeight = 1;
 const canvasWidth = 66;
 const canvasHeight = 44;
 const ballDiameter = 5;
+var paddleX;
 
 class Block {
   width = 12;
@@ -82,6 +80,7 @@ function movePaddle() {
 
     function moveAt(pageX) {
       paddle.style.left = pageX - shiftX + "px";
+      paddleX =  (pageX - shiftX) / 16;
     }
 
     function onMouseMove(event) {
@@ -101,6 +100,7 @@ function movePaddle() {
   };
 }
 
+
 function createBall() {
   ball.classList.add("ball");
   drawBall();
@@ -113,23 +113,26 @@ function drawBall() {
 }
 
 function moveBall() {
-  ballCurrentPosition[0] += xLeft;
-  ballCurrentPosition[1] -= yBottom;
+  ballCurrentPosition[0] += dx;
+  ballCurrentPosition[1] += dy;
   drawBall();
   checkForCollision();
 }
 
 function checkForCollision() {
-  // check for paddle collision
-  if((ballCurrentPosition[0] > paddleCurrentPosition[0] && ballCurrentPosition[0] < paddleCurrentPosition[0] + paddleWidth) &&
-  (ballCurrentPosition[1] + paddleHeight > paddleCurrentPosition[1] && ballCurrentPosition[1] < paddleCurrentPosition[1])) {
+  // check for paddle collision 
+  if (
+    ballCurrentPosition[0] + ballDiameter > paddleX &&
+    ballCurrentPosition[0] < paddleX + paddleWidth &&
+    ballCurrentPosition[1] + ballDiameter + paddleHeight > paddleCurrentPosition[1]
+  ) {
     changeDirection();
   }
 
   // check for block collisions
   for (let i = 0; i < allBlocks.length; i++) {
     if (
-      ballCurrentPosition[0] > allBlocks[i].topLeft[0] &&
+      ballCurrentPosition[0] + ballDiameter > allBlocks[i].topLeft[0] &&
       ballCurrentPosition[0] < allBlocks[i].topRight[0] &&
       ballCurrentPosition[1] + ballDiameter > allBlocks[i].topLeft[1] &&
       ballCurrentPosition[1] < allBlocks[i].bottomLeft[1]
@@ -138,6 +141,7 @@ function checkForCollision() {
       console.log(blocks);
       blocks[i].classList.remove("block");
       allBlocks.splice(i, 1);
+      dy=-dy;
       changeDirection();
     }
   }
@@ -158,66 +162,46 @@ function checkForCollision() {
 }
 
 function changeDirection() {
-  if (xLeft === 1 && yBottom === 1 && first === false) {
-    yBottom = -1;
-    first = true;
-    console.log("FIRST CHANGE DIRECTION: xLeft -> " + xLeft);
-    console.log("FIRST CHANGE DIRECTION: yBottom -> " + yBottom);
-    console.log("FIRST: first -> " + first);
-    return;
+  if (
+    ballCurrentPosition[1] + dy >= canvasHeight - ballDiameter ||
+    ballCurrentPosition[1] + dy <= 0
+  ) {
+    dy = -dy;
   }
-  if (xLeft === 1 && yBottom === -1 && first === true) {
-    yBottom = 1;
-    console.log("Second CHANGE DIRECTION: xLeft -> " + xLeft);
-    console.log("Second CHANGE DIRECTION: yBottom -> " + yBottom);
-    return;
+  if (
+    ballCurrentPosition[0] + dx >= canvasWidth - ballDiameter ||
+    ballCurrentPosition[0] + dx <= 0
+  ) {
+    dx = -dx;
   }
-  if(xLeft === 1 && yBottom === 1 && first === true) {
-    xLeft = -1;
-    console.log("Third CHANGE DIRECTION: xLeft -> " + xLeft);
-    console.log("Third CHANGE DIRECTION: yBottom -> " + yBottom);
-    return;
-  }
-  if(xLeft === -1 && yBottom === 1 && first === true) {
-    yBottom = -1;
-    console.log("Fourth CHANGE DIRECTION: xLeft -> " + xLeft);
-    console.log("Fourth CHANGE DIRECTION: yBottom -> " + yBottom);
-    return;
-  }
-  if(xLeft === -1 && yBottom === -1 && first === true) {
-    yBottom = 1;
-    first = false;
-    console.log("Fifth CHANGE DIRECTION: xLeft -> " + xLeft);
-    console.log("Fifth CHANGE DIRECTION: yBottom -> " + yBottom);
-    return;
-  }
-  if(xLeft === -1 && yBottom === 1 && first === false) {
-    xLeft = 1;
-    console.log("Sixth CHANGE DIRECTION: xLeft -> " + xLeft);
-    console.log("Sixth CHANGE DIRECTION: yBottom -> " + yBottom);
-    return;
-  }
-  // if(xLeft === 1 && yBottom === 1) {
-  //   yBottom = -1;
-  //   return;
-  // }
-  // if(xLeft === 1 && yBottom === -1) {
-  //   xLeft = -1;
-  //   return;
-  // }
-  // if(xLeft === -1 && yBottom === -1) {
-  //   yBottom = 1;
-  //   return;
-  // } 
-  // if(xLeft === -1 && yBottom === 1) {
-  //   xLeft = 1;
-  //   return;
-  // }
+  ballCurrentPosition[0] += dx;
+  ballCurrentPosition[1] += dy;
 }
 
-let startButton = document.querySelector(".startForm");
+let startScreen = document.querySelector(".startForm");
+
+let title = document.querySelector(".title");
+let titleFont = document.createElement("h1");
+let titleBackground = document.createElement("span");
+title.appendChild(titleFont);
+titleFont.appendChild(titleBackground);
+
+function createGreeting(name) {
+  return "Welcome to " + name;
+}
+
+//callback function usage
+function displayGreeting(greetingFunction, userName) {
+  return greetingFunction(userName);
+}
+
+var greeting = displayGreeting(createGreeting, "Breakout");
+
+titleBackground.innerHTML += greeting;
+
+let startButton = document.querySelector(".startBtn");
 startButton.addEventListener("click", function () {
-  startButton.classList.add("active");
+  startScreen.classList.add("active");
   createBlocks();
   createPaddle();
   movePaddle();
